@@ -4,6 +4,7 @@
   "private": true,
   "productName": "VNote",
   "main": "electron/main.js",
+  "author": "oakmans",
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -19,8 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-electron": "mkdir build/src && robocopy electron build/electron /S & robocopy src/shared build/src/shared /S",
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/electron/main.js --publish never"
+    "build-electron": "mkdir build/src ; robocopy electron build/electron /S ; robocopy src/shared build/src/shared /S",
+    "package": "electron-builder build --win -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,7 +49,7 @@
     "publish": {
       "provider": "github",
       "repo": "vnote",
-      "owner": "chirantan"
+      "owner": "oakmans"
     }
   }
 }
