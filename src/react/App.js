@@ -1,8 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ReactPlayer from 'react-player/youtube'
 import { channels } from '../shared/constants'
+// import { Html5vid } from './components/Html5vid'
+import { Tinymce } from './components/Tinymce';
 const { ipcRenderer } = window
+
 
 class App extends React.Component {
   constructor(props) {
@@ -22,11 +25,18 @@ class App extends React.Component {
   render(){
     const { appName, appVersion } = this.state;
     return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>{appName} version {appVersion}</p>
-          </header>
+        <div>
+          <div className="row">
+            <div className="col-md-10">
+              <ReactPlayer url='https://www.youtube.com/watch?v=YTYZsXYp1hs' />
+              {/*<Html5vid/>*/}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-10">
+              <Tinymce/>
+            </div>
+          </div>
         </div>
     );
   }
