@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ReactPlayer from 'react-player/youtube'
 import { channels } from '../shared/constants'
 // import { Html5vid } from './components/Html5vid'
-import { Tinymce } from './components/Tinymce';
+import { Navheader } from './components/Navheader'
+import { Pell } from './components/Pell'
 const { ipcRenderer } = window
 
 
@@ -26,6 +27,7 @@ class App extends React.Component {
     const { appName, appVersion } = this.state;
     return (
         <div>
+          <Navheader/>
           <div className="row">
             <div className="col-md-10">
               <ReactPlayer url='https://www.youtube.com/watch?v=YTYZsXYp1hs' />
@@ -34,7 +36,7 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-10">
-              <Tinymce/>
+              <Pell/>
             </div>
           </div>
         </div>
