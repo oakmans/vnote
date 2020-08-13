@@ -1,11 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Container, Row, Col } from 'react-bootstrap'
 import ReactPlayer from 'react-player/youtube'
 import { channels } from '../shared/constants'
 // import { Html5vid } from './components/Html5vid'
 import { Navheader } from './components/Navheader'
 import { Pell } from './components/Pell'
+import {Html5vid} from "./components/Html5vid";
 const { ipcRenderer } = window
+
 
 
 class App extends React.Component {
@@ -26,20 +29,27 @@ class App extends React.Component {
   render(){
     const { appName, appVersion } = this.state;
     return (
-        <div>
-          <Navheader/>
+      <div className="container-fluid p-0">
           <div className="row">
-            <div className="col-md-10">
-              <ReactPlayer url='https://www.youtube.com/watch?v=YTYZsXYp1hs' />
-              {/*<Html5vid/>*/}
-            </div>
+              <div className="col-md-8">
+                <Navheader/>
+              </div>
           </div>
           <div className="row">
-            <div className="col-md-10">
-              <Pell/>
-            </div>
+              <div className="col-md-8">
+                  <ReactPlayer
+                    url='https://www.youtube.com/watch?v=YTYZsXYp1hs'
+                    controls='true'
+                    width='100%'
+                  />
+              </div>
           </div>
-        </div>
+          <div className="row">
+              <div className="col-md-8">
+                  <Pell/>
+              </div>
+          </div>
+      </div>
     );
   }
 }
