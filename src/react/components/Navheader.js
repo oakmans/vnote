@@ -21,9 +21,16 @@ export class Navheader extends React.Component {
 
     search(term) {
         YTSearch({key: 'placeholder', term: term}, (videos) => {
-            this.setState({
-                videos: videos
-            })
+            try {
+                if( videos && videos.data && videos.data.error.message ) {
+                    console.log(videos);
+                    throw ('error')
+                }
+                this.props.videosToParent(videos)
+            } catch (err) {
+                //handle error with a modal
+                console.log(err)
+            }
         })
     }
 
@@ -36,8 +43,8 @@ export class Navheader extends React.Component {
                     <Dropdown.Item><div onClick={(e) => this.changePlayer(e.target.textContent)}>Twitch</div></Dropdown.Item>
                 </DropdownButton>
                 <Form inline>
-                    <FormControl ref = {this.term} type="text" placeholder="Search" className=" mr-sm-2" />
-                    <Button type="button" onClick={() => this.search(this.term.current.value)}>Submit</Button>
+                    <FormControl ref = {this.term} type="text" placeholder="" className=" mr-sm-2" />
+                    <Button type="button" onClick={() => this.search(this.term.current.value)}>Search</Button>
                 </Form>
             </Navbar>
         )
