@@ -1,14 +1,11 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col } from 'react-bootstrap'
-import ReactPlayer from 'react-player/youtube'
-import { channels } from '../shared/constants'
-// import { Html5vid } from './components/Html5vid'
-import { Navheader } from './components/Navheader'
-import { Pell } from './components/Pell'
-import {Html5vid} from "./components/Html5vid";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactPlayer from 'react-player/lazy';
+import { channels } from '../shared/constants';
+import { PlaylistMenu } from "./components/PlaylistMenu/PlaylistMenu";
+import { Tinymce } from "./components/TinyMce/TinyMce"
+import "./App.css"
 const { ipcRenderer } = window
-
 
 
 class App extends React.Component {
@@ -26,33 +23,29 @@ class App extends React.Component {
     });
   }
 
-  render(){
+  render() {
     const { appName, appVersion } = this.state;
     return (
-      <div className="container-fluid p-0">
-          <div className="row">
-              <div className="col-md-8">
-                <Navheader/>
-              </div>
-          </div>
-          <div className="row">
-              <div className="col-md-8">
-                  <ReactPlayer
-                    url='https://www.youtube.com/watch?v=YTYZsXYp1hs'
-                    controls='true'
-                    width='100%'
-                  />
-              </div>
-          </div>
-          <div className="row">
-              <div className="col-md-8">
-                  <Pell/>
-              </div>
-          </div>
+      <div id="App" className="contianer-fluid p-2">
+        <row>
+          <PlaylistMenu />
+        </row>
+        <row>
+          <ReactPlayer
+            url='https://www.youtube.com/watch?v=odtAJ2kPdqc&t=1s'
+            height="68%"
+            width="100%"
+            controls='true'
+          /> 
+        </row>
+        <row>
+          <div  className="h-29">
+          <Tinymce/>
+          </div>        
+        </row>
       </div>
     );
   }
 }
-
 
 export default App;
