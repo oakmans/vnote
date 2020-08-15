@@ -2,7 +2,7 @@ import React from 'react';
 import YTSearch from 'youtube-api-search';
 import { slide as Menu } from 'react-burger-menu'
 import { Navbar, Form, FormControl, Button, Dropdown, DropdownButton, Container } from 'react-bootstrap';
-
+import { Playlist } from '../Playlist/Playlist'
 
 export class PlaylistMenu extends React.Component {
     constructor(props) {
@@ -43,23 +43,7 @@ export class PlaylistMenu extends React.Component {
                     <FormControl ref = {this.term} type="text" placeholder="Search"/>
                     <Button type="button" onClick={() => this.search(this.term.current.value)}>Submit</Button>
                 </Form>
-                <Container className="bg-white justify-content-between">
-                    <div className="media">
-                        <p>Placeholder Item 1</p>
-                    </div>
-                    <div className="media">
-                        <p>Placeholder Item 1</p>
-                    </div>
-                    <div className="media">
-                        <p>Placeholder Item 1</p>
-                    </div>
-                    <div className="media">
-                        <p>Placeholder Item 1</p>
-                    </div>
-                    <div className="media">
-                        <p>Placeholder Item 1</p>
-                    </div>
-                </Container>
+                <Playlist>
             </Menu>
         )
     }
