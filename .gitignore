@@ -11,6 +11,7 @@
 # production
 /build
 /dist
+/src/react/keys.js
 
 # misc
 .DS_Store

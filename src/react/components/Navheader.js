@@ -1,6 +1,8 @@
 import React from 'react'
 import YTSearch from 'youtube-api-search'
+import '../keys'
 import { Navbar, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
+import {api_key} from "../keys";
 
 export class Navheader extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ export class Navheader extends React.Component {
     }
 
     search(term) {
-        YTSearch({key: 'placeholder', term: term}, (videos) => {
+        YTSearch({key: api_key, term: term}, (videos) => {
             try {
                 if( videos && videos.data && videos.data.error.message ) {
                     console.log(videos);
