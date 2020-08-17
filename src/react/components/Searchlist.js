@@ -1,5 +1,4 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap'
 
 export class Searchlist extends React.Component {
     constructor(props) {
@@ -8,20 +7,19 @@ export class Searchlist extends React.Component {
     }
 
     populateList(items) {
-        let result = ''
+        let result = '<ListGroup>'
         for(let item in items) {
             if(items.hasOwnProperty(item)) {
-                result = result + `<ListGroup.Item>${items[item]['id']['videoId']}</ListGroup.Item>`
+                result = result + `<ListGroupItem>${items[item]['id']['videoId']}</ListGroupItem>`
             }
         }
+        result = result + '</ListGroup>'
         return result
     }
 
     render() {
         return (
-            <ListGroup>
-                {this.populateList(this.props.videosFromParent)}
-            </ListGroup>
-        )
+            <div dangerouslySetInnerHTML={{ __html: this.populateList(this.props.videosFromParent) }} />
+        );
     }
 }

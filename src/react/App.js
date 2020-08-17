@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ReactPlayer from 'react-player/youtube'
+import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { channels } from '../shared/constants'
 import { Navheader } from './components/Navheader'
 import { Pell } from './components/Pell'
